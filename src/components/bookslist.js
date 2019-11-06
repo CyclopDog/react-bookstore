@@ -1,12 +1,12 @@
 import React from 'react';
-import { store } from '../reducers/index.js'
+import Book from './book.js'
+import { connect } from 'react-redux'
 
-export default class BooksList extends React.Component {
+class BooksList extends React.Component {
 
   render(){
-    const books = ["book 1", "book 2"]
-    const table = books.map(book => {
-      return <tr><td>1</td><td>{book}</td><td>Redux</td></tr>
+    const table = this.props.books.map(book => {
+      return <Book book={book} />
     })
 
     return (
@@ -21,3 +21,15 @@ export default class BooksList extends React.Component {
     )
   }
 }
+
+const mapStateToProps = state => {
+  return {
+    books: state.books
+  };
+};
+
+// const mapDispatchToProps = {
+//   removeNote: removeNote
+// };
+
+export default connect(mapStateToProps, null)(BooksList)

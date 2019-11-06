@@ -8,7 +8,7 @@ export default class Book extends React.Component {
 
   render() {
     return (
-      <tr><td>{this.props.id}</td><td>{this.props.name}</td><td>{this.props.category}</td></tr>
+      <tr><td>{this.props.book.id}</td><td>{this.props.book.name}</td><td>{this.props.book.category}</td></tr>
     )
   }
 }
