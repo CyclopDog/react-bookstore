@@ -1,7 +1,7 @@
 import React from 'react'
 import PropTypes from 'prop-types'
 
-export default class Book extends React.Component {
+export class Book extends React.Component {
   propTypes = {
     book: PropTypes.object
   }

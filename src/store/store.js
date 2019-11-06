@@ -3,4 +3,4 @@ import { rootReducer } from '../reducers/index.js'
 
 const store = createStore(rootReducer)
 
-export { store }
+export default store
