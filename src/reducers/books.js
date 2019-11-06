@@ -11,6 +11,11 @@ const initialState = {
       id:2,
       title: "Harry Potter 2",
       category: "Action"
+    },
+    {
+      id:3,
+      title: "Harry Potter 3",
+      category: "Action"
     }
   ]
 }
