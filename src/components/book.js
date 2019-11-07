@@ -9,11 +9,13 @@ class Book extends React.Component {
   }
 
   render() {
+    const {id, title, category} = this.props.book
+  
     return (
       <tr>
-        <td>{this.props.book.id}</td>
-        <td>{this.props.book.name}</td>
-        <td>{this.props.book.category}</td>
+        <td>{id}</td>
+        <td>{title}</td>
+        <td>{category}</td>
         <td><button>Remove</button></td>
       </tr>
     )
