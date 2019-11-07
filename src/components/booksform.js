@@ -19,8 +19,12 @@ class BooksForm extends React.Component {
   handleSubmit = (e) => {
     e.preventDefault()
 
-    this.props.createBook(this.state)
-    this.setState({ title: '' })
+    if (this.state.title === '') {
+      alert('Please provide a title')
+    } else {
+      this.props.createBook(this.state)
+      this.setState({ title: '' })
+    }
   }
 
   componentDidMount(){
