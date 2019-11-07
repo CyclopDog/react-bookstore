@@ -8,7 +8,7 @@ class BooksForm extends React.Component {
 
     this.state = {
       title: '',
-      category: 'Action'
+      category: ''
     }
   }
 
@@ -23,12 +23,16 @@ class BooksForm extends React.Component {
     this.setState({ title: '' })
   }
 
+  componentDidMount(){
+    this.setState({category: document.querySelector('select').value})
+  }
+
   render() {
     const categories = ["Action", "Biography", "History", "Horror", "Kids", "Learning", "Sci-Fi"]
     const cats = categories.map(cat => {
       return <option value={cat}>{cat}</option>
     })
-    
+
     return (
     <form onSubmit={this.handleSubmit}>
       <input type='text' name='title' value={this.state.title} onChange={this.handleChange}></input>
@@ -41,4 +45,8 @@ class BooksForm extends React.Component {
   }
 }
 
-export default connect(null, {createBook: createBook})(BooksForm)
+const mapDispatchToProps = {
+  createBook: createBook
+}
+
+export default connect(null, mapDispatchToProps)(BooksForm)

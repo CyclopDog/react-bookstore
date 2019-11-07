@@ -23,8 +23,10 @@ const initialState = {
 const bookReducer = (state = initialState, action) => {
   switch (action.type){
     case CREATE_BOOK:
+    const randId = Math.floor(Math.random()*9999)
       return {
         books: [...state.books, {
+          id: randId,
           title: action.title,
           category: action.category
         }]
