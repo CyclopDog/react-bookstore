@@ -1,11 +1,11 @@
 import React from 'react'
 import { categories } from './booksform'
 import { changeFilter } from '../actions/index'
-import { connect } from 'http2'
+import { connect } from 'react-redux'
 
 class CategoryFilter extends React.Component {
   handleChange = (e) => {
-    changeFilter(e.target.value)
+    this.props.changeFilter(e.target.value)
   }
 
   render() {
@@ -21,8 +21,14 @@ class CategoryFilter extends React.Component {
   }
 }
 
+const mapStateToProps = state => {
+  return {
+    books: state.bookReducer.books
+  }
+}
+
 const mapDispatchToProps = {
   changeFilter: changeFilter
 }
 
-export default connect(null, mapDispatchToProps)(CategoryFilter)
+export default connect(mapStateToProps, mapDispatchToProps)(CategoryFilter)
