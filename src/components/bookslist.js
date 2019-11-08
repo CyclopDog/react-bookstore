@@ -2,36 +2,48 @@ import React from 'react';
 import Book from './book.js'
 import { connect } from 'react-redux'
 import { removeBook } from '../actions/index'
+import CategoryFilter from './categoryfilter';
+import { changeFilter } from '../actions/index'
 class BooksList extends React.Component {
 
+  handleFilterChange = (e) => {
+    this.props.changeFilter(e.target.value)
+  }
+
   render(){
-    const table = this.props.books.map(book => {
+    const filteredBooks = this.props.filter === null ? this.props.books : this.props.books.filter((book) => book.category === this.props.filter)
+    const table = filteredBooks.map(book => {
       return <Book book={book} />
     })
 
     return (
-      <table>
-        <tbody>
-        <tr>
-          <th>Book ID</th>
-          <th>Title</th>
-          <th>Category</th>
-        </tr>
-        {table}
-        </tbody>
-      </table>
+      <React.Fragment>
+        <CategoryFilter filterHandler={this.handleFilterChange} />
+        <table>
+          <tbody>
+          <tr>
+            <th>Book ID</th>
+            <th>Title</th>
+            <th>Category</th>
+          </tr>
+          {table}
+          </tbody>
+        </table>
+      </React.Fragment>
     )
   }
 }
 
 const mapStateToProps = state => {
   return {
-    books: state.bookReducer.books
+    books: state.bookReducer.books,
+    filter: state.filterReducer.filter
   }
 }
 
 const mapDispatchToProps = {
-  removeBook: removeBook
+  removeBook: removeBook,
+  changeFilter: changeFilter
 }
 
 

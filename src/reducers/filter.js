@@ -8,17 +8,15 @@ export const filterReducer = (state = initialState, action) => {
   switch(action.type){
     case CHANGE_FILTER:
       if (action.filter !== 'All') {
-        console.log(state)
         return {
-          books: state.books.filter((book) => {
-            return book.category === action.filter
-          })
+          filter: action.filter
         }
       } else {
-          return state
+          return {
+            filter: null
+          }
       }
     default:
       return state
   }
-
 }
