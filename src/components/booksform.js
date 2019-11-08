@@ -2,6 +2,8 @@ import React from 'react'
 import { createBook } from '../actions/index'
 import { connect } from 'react-redux'
 
+export const categories = ["Action", "Biography", "History", "Horror", "Kids", "Learning", "Sci-Fi"]
+
 class BooksForm extends React.Component {
   constructor(props){
     super(props)
@@ -32,9 +34,8 @@ class BooksForm extends React.Component {
   }
 
   render() {
-    const categories = ["Action", "Biography", "History", "Horror", "Kids", "Learning", "Sci-Fi"]
-    const cats = categories.map(cat => {
-      return <option value={cat}>{cat}</option>
+    const cats = categories.map((cat, i) => {
+      return <option key={i} value={cat}>{cat}</option>
     })
 
     return (

@@ -10,7 +10,7 @@ const initialState = {
     {
       id:2,
       title: "Harry Potter 2",
-      category: "Action"
+      category: "Horror"
     },
     {
       id:3,
