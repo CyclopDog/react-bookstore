@@ -10,11 +10,36 @@ $navbar-padding-horizontal: $padding;
 .box {
   border: 1px solid lightgray;
 }
-
 .title  {
   margin-bottom: 0 !important;
 }
-
-.navbar {
+nav {
   padding: 20px;
+  .title  {
+    color: #0290ff;
+  }
+  ul{
+    li{
+      margin-left:30px;
+      a{
+        color:lightgray;
+        &.active{
+          color:black;
+        }
+      }
+    }
+  }
+}
+
+main{
+  #root{
+    table{
+      width: 100%;
+      tr{
+        td{
+          display:block;
+        }
+      }
+    }
+  }
 }

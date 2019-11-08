@@ -30,7 +30,7 @@ class BooksForm extends React.Component {
   }
 
   componentDidMount(){
-    this.setState({category: document.querySelector('select').value})
+    this.setState({category: document.querySelector('#category').value})
   }
 
   render() {
@@ -41,7 +41,7 @@ class BooksForm extends React.Component {
     return (
     <form onSubmit={this.handleSubmit}>
       <input type='text' name='title' value={this.state.title} onChange={this.handleChange}></input>
-      <select name='category' value={this.state.category} onChange={this.handleChange}>
+      <select name='category' id='category' value={this.state.category} onChange={this.handleChange}>
         {cats}
       </select>
       <button>Submit</button>

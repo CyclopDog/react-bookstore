@@ -12,10 +12,10 @@ class Book extends React.Component {
     const {id, title, category} = this.props.book
 
     return (
-      <tr className='box'>
-        <td>{id}</td>
-        <td>{title}</td>
-        <td>{category}</td>
+      <tr className="box">
+        <td className="is-size-5 has-text-grey">{category}</td>
+        <td className="title">{title}</td>
+        <td className="is-size-7">{id}</td>
         <td><button onClick = { () => this.handleDelete(this.props.book) }>Remove</button></td>
       </tr>
     )
