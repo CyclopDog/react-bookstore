@@ -12,7 +12,7 @@ class Book extends React.Component {
     const {id, title, category} = this.props.book
 
     return (
-      <tr>
+      <tr className='box'>
         <td>{id}</td>
         <td>{title}</td>
         <td>{category}</td>
