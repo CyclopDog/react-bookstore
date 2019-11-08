@@ -4,17 +4,17 @@ const initialState = {
   books: [
     {
       id:1,
-      title: "Harry Potter 1",
+      title: "Harry Potter Prisoners of Caban",
       category: "Action"
     },
     {
       id:2,
-      title: "Harry Potter 2",
+      title: "Harry Potter Archbishop of Luton",
       category: "Horror"
     },
     {
       id:3,
-      title: "Harry Potter 3",
+      title: "Harry Potter King of Scotland",
       category: "Action"
     }
   ]
