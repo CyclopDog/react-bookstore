@@ -5,7 +5,7 @@ import { connect } from 'react-redux'
 class CategoryFilter extends React.Component {
 
   render() {
-    const filters = ['All', ...categories].map((f) => <option>{f}</option>)
+    const filters = ['All', ...categories].map((f,i) => <option key={i}>{f}</option>)
     return (
       <React.Fragment>
         <span>Filter: </span>

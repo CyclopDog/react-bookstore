@@ -34,8 +34,8 @@ class BooksForm extends React.Component {
   }
 
   render() {
-    const cats = categories.map(cat => {
-      return <option value={cat}>{cat}</option>
+    const cats = categories.map((cat, i) => {
+      return <option key={i} value={cat}>{cat}</option>
     })
 
     return (

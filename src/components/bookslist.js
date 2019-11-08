@@ -12,8 +12,8 @@ class BooksList extends React.Component {
 
   render(){
     const filteredBooks = this.props.filter === null ? this.props.books : this.props.books.filter((book) => book.category === this.props.filter)
-    const table = filteredBooks.map(book => {
-      return <Book book={book} />
+    const table = filteredBooks.map((book, i) => {
+      return <Book key={i} book={book} />
     })
 
     return (
