@@ -39,15 +39,19 @@ class BooksForm extends React.Component {
     })
 
     return (
-    <form className='field is-grouped' onSubmit={this.handleSubmit}>
-      <input className='input' type='text' name='title' value={this.state.title} onChange={this.handleChange}></input>
-      <div className='select'>
-        <select name='category' id='category' value={this.state.category} onChange={this.handleChange}>
-          {cats}
-        </select>
-      </div>
-      <button className='button'>Submit</button>
-    </form>
+    <React.Fragment>
+      <hr />
+      <h4 className="title has-text-grey is-5">Add New Book</h4>
+      <form className='field is-grouped' onSubmit={this.handleSubmit}>
+        <input className='input' type='text' name='title' placeholder='Book Title' value={this.state.title} onChange={this.handleChange}></input>
+        <div className='select'>
+          <select name='category' id='category' value={this.state.category} onChange={this.handleChange}>
+            {cats}
+          </select>
+        </div>
+        <button className='button is-info'>Add book</button>
+      </form>
+    </ React.Fragment>
     )
   }
 }

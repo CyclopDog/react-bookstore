@@ -9,14 +9,13 @@ class Book extends React.Component {
   }
 
   render() {
-    const {id, title, category} = this.props.book
+    const {title, category} = this.props.book
 
     return (
       <tr className="box">
         <td className="is-size-5 has-text-grey">{category}</td>
-        <td className="title">{title}</td>
-        <td className="is-size-7">{id}</td>
-        <td><button className='button is-danger is-outlined' onClick = { () => this.handleDelete(this.props.book) }>Remove</button></td>
+        <td className="title is-4">{title}</td>
+        <td><button className='button is-danger is-outlined is-small' onClick = { () => this.handleDelete(this.props.book) }>Remove</button></td>
       </tr>
     )
   }

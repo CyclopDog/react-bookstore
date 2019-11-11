@@ -13,6 +13,12 @@ $navbar-padding-horizontal: $padding;
 .title  {
   margin-bottom: 0 !important;
 }
+.section{
+  padding: 1em 1.5em;
+}
+hr{
+  background-color: #e6e6e6;
+}
 nav {
   padding: 20px;
   .title  {
@@ -35,9 +41,13 @@ main{
   #root{
     table{
       width: 100%;
+      margin-bottom:30px;
       tr{
         td{
           display:block;
+          &.title{
+            padding-bottom:10px;
+          }
         }
       }
     }
@@ -48,3 +58,5 @@ form {
   width: 600px;
   margin: 20px 0;
 }
+
+.select{margin:0 20px;}
