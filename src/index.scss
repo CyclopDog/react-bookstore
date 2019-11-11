@@ -1,0 +1,62 @@
+$padding: 10rem;
+
+$box-shadow: 0;
+$body-background-color: #f5f6fa;
+$navbar-padding-vertical: $padding;
+$navbar-padding-horizontal: $padding;
+
+@import 'bulma/bulma.sass';
+
+.box {
+  border: 1px solid lightgray;
+}
+.title  {
+  margin-bottom: 0 !important;
+}
+.section{
+  padding: 1em 1.5em;
+}
+hr{
+  background-color: #e6e6e6;
+}
+nav {
+  padding: 20px;
+  .title  {
+    color: #0290ff;
+  }
+  ul{
+    li{
+      margin-left:30px;
+      a{
+        color:lightgray;
+        &.active{
+          color:black;
+        }
+      }
+    }
+  }
+}
+
+main{
+  #root{
+    table{
+      width: 100%;
+      margin-bottom:30px;
+      tr{
+        td{
+          display:block;
+          &.title{
+            padding-bottom:10px;
+          }
+        }
+      }
+    }
+  }
+}
+
+form {
+  width: 600px;
+  margin: 20px 0;
+}
+
+.select{margin:0 20px;}

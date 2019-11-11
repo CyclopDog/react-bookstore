@@ -8,10 +8,14 @@ class CategoryFilter extends React.Component {
     const filters = ['All', ...categories].map((f,i) => <option key={i}>{f}</option>)
     return (
       <React.Fragment>
-        <span>Filter: </span>
-        <select onChange={this.props.filterHandler}>
-          {filters}
-        </select>
+        <div className='field level-left'>
+          <span className='level-left'>Filter:</span>
+          <div className='select level-left'>
+            <select className='level-left' onChange={this.props.filterHandler}>
+              {filters}
+            </select>
+          </div>
+        </div>
       </React.Fragment>
     )
   }
