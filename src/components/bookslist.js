@@ -10,6 +10,29 @@ class BooksList extends React.Component {
     this.props.changeFilter(e.target.value)
   }
 
+  componentDidMount(){
+    fetch("http://localhost:3000/books")
+      .then(res => res.json())
+      .then(
+        (result) => {
+          // this.setState({
+          //   isLoaded: true,
+          //   items: result.items
+          // });
+          console.log(result)
+        },
+        // Note: it's important to handle errors here
+        // instead of a catch() block so that we don't swallow
+        // exceptions from actual bugs in components.
+        (error) => {
+          this.setState({
+            isLoaded: true,
+            error
+          });
+        }
+      )
+  }
+
   render(){
     const filteredBooks = this.props.filter === null ? this.props.books : this.props.books.filter((book) => book.category === this.props.filter)
     const table = filteredBooks.map((book, i) => {
