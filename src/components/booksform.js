@@ -36,6 +36,7 @@ class BooksForm extends React.Component {
         })
       })
       this.setState({ title: '' })
+      this.props.handleApi()
     }
   }
 

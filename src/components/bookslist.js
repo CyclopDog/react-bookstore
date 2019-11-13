@@ -4,6 +4,7 @@ import { connect } from 'react-redux'
 import { removeBook } from '../actions/index'
 import CategoryFilter from './categoryfilter';
 import { changeFilter } from '../actions/index'
+import BooksForm from './booksform'
 class BooksList extends React.Component {
   constructor(props) {
     super(props)
@@ -11,6 +12,7 @@ class BooksList extends React.Component {
     this.state = {
       books: []
     }
+    this.fetchBooks = this.fetchBooks.bind(this)
   }
 
   handleFilterChange = (e) => {
@@ -47,6 +49,7 @@ class BooksList extends React.Component {
           {table}
           </tbody>
         </table>
+        <BooksForm handleApi={this.fetchBooks}/>
       </React.Fragment>
     )
   }
