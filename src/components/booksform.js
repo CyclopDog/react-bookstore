@@ -35,8 +35,8 @@ class BooksForm extends React.Component {
           category: this.state.category
         })
       })
+      .then(res => this.props.handleApi())
       this.setState({ title: '' })
-      this.props.handleApi()
     }
   }
 
@@ -62,7 +62,7 @@ class BooksForm extends React.Component {
         </div>
         <button className='button is-info'>Add book</button>
       </form>
-    </ React.Fragment>
+    </React.Fragment>
     )
   }
 }

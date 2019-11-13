@@ -8,6 +8,7 @@ class Book extends React.Component {
     fetch(`http://localhost:3000/books/${book.id}`, {
       method: 'DELETE'
     })
+    .then(res => this.props.handleApi())
   }
 
   render() {
