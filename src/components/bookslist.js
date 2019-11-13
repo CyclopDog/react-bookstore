@@ -1,10 +1,10 @@
 import React from 'react';
-import Book from './book.js'
 import { connect } from 'react-redux'
 import { removeBook } from '../actions/index'
 import CategoryFilter from './categoryfilter';
 import { changeFilter } from '../actions/index'
 import BooksForm from './booksform'
+import Pagination from './Pagination.js';
 class BooksList extends React.Component {
   constructor(props) {
     super(props)
@@ -37,18 +37,11 @@ class BooksList extends React.Component {
 
   render(){
     const filteredBooks = this.props.filter === null ? this.state.books : this.state.books.filter((book) => book.category === this.props.filter)
-    const table = filteredBooks.map((book, i) => {
-      return <Book key={i} book={book} handleApi={this.fetchBooks} />
-    })
 
     return (
       <React.Fragment>
         <CategoryFilter filterHandler={this.handleFilterChange} />
-        <table>
-          <tbody>
-          {table}
-          </tbody>
-        </table>
+        <Pagination itens={filteredBooks} handleApi={this.fetchBooks}/>
         <BooksForm handleApi={this.fetchBooks}/>
       </React.Fragment>
     )
