@@ -24,7 +24,18 @@ class BooksForm extends React.Component {
     if (this.state.title === '') {
       alert('Please provide a title')
     } else {
-      this.props.createBook(this.state)
+      fetch('http://localhost:3000/books', {
+        method: 'POST',
+        headers: {
+          Accept: 'application/json',
+          'Content-type': 'application/json'
+        },
+        body: JSON.stringify({
+          title: this.state.title,
+          category: this.state.category
+        })
+      })
+      .then(res => this.props.handleApi())
       this.setState({ title: '' })
     }
   }
@@ -51,7 +62,7 @@ class BooksForm extends React.Component {
         </div>
         <button className='button is-info'>Add book</button>
       </form>
-    </ React.Fragment>
+    </React.Fragment>
     )
   }
 }

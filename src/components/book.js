@@ -5,7 +5,10 @@ import { removeBook } from '../actions/index'
 class Book extends React.Component {
 
   handleDelete = (book) => {
-    this.props.removeBook(book)
+    fetch(`http://localhost:3000/books/${book.id}`, {
+      method: 'DELETE'
+    })
+    .then(res => this.props.handleApi())
   }
 
   render() {
