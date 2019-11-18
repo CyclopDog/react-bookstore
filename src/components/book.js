@@ -5,10 +5,10 @@ import { removeBook } from '../actions/index'
 class Book extends React.Component {
 
   handleDelete = (book) => {
-    fetch(`http://localhost:3000/books/${book.id}`, {
+    fetch(`https://em-bookstore-api.herokuapp.com/books/${book.id}`, {
       method: 'DELETE'
     })
-    .then(res => this.props.handleApi())
+    .then(() => this.props.handleApi())
   }
 
   render() {
