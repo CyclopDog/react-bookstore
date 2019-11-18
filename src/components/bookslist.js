@@ -20,7 +20,7 @@ class BooksList extends React.Component {
   }
 
   fetchBooks() {
-    fetch("http://em-bookstore-api.herokuapp.com/books")
+    fetch("https://em-bookstore-api.herokuapp.com/books")
     .then(res => res.json())
     .then(
       (res) => {
