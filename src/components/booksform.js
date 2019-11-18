@@ -24,7 +24,7 @@ class BooksForm extends React.Component {
     if (this.state.title === '') {
       alert('Please provide a title')
     } else {
-      fetch('https://em-bookstore-api.herokuapp.com/books', {
+      fetch('http://em-bookstore-api.herokuapp.com/books', {
         method: 'POST',
         headers: {
           Accept: 'application/json',
