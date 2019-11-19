@@ -12,7 +12,8 @@ class BooksList extends React.Component {
     super(props)
 
     this.state = {
-      books: []
+      books: [],
+      loading: false
     }
     this.fetchBooks = this.fetchBooks.bind(this)
   }
@@ -22,6 +23,7 @@ class BooksList extends React.Component {
   }
 
   fetchBooks() {
+    this.setState({ loading: true })
     fetch(`https://secret-meadow-93147.herokuapp.com/books`, {
       method: 'GET',
       headers: {
@@ -33,7 +35,8 @@ class BooksList extends React.Component {
     .then(
       (res) => {
         this.setState({
-          books: res
+          books: res,
+          loading: false
         })
       }
     )
@@ -45,11 +48,22 @@ class BooksList extends React.Component {
 
   render(){
     const filteredBooks = this.props.filter === null ? this.state.books : this.state.books.filter((book) => book.category === this.props.filter)
+    const Loading = () => {
+      if (this.state.loading === false) {
+        return (<Pagination itens={filteredBooks} handleApi={this.fetchBooks}/>)  
+      } else {
+        return(
+          <div className='box'>
+            <h1 className='title is-3'>LOADING...</h1>
+          </div>
+        )
+      }
+    }
 
     return (
       <React.Fragment>
         <CategoryFilter filterHandler={this.handleFilterChange} />
-        <Pagination itens={filteredBooks} handleApi={this.fetchBooks}/>
+        <Loading />
         <BooksForm handleApi={this.fetchBooks}/>
       </React.Fragment>
     )

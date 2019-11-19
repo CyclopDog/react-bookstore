@@ -24,6 +24,7 @@ class BooksForm extends React.Component {
     if (this.state.title === '') {
       alert('Please provide a title')
     } else {
+      console.log(this.state)
       fetch(`https://secret-meadow-93147.herokuapp.com/books`, {
         method: 'POST',
         headers: {
@@ -41,7 +42,6 @@ class BooksForm extends React.Component {
   }
 
   componentDidMount(){
-    console.log(process.env.API_URL)
     this.setState({category: document.querySelector('#category').value})
   }
 
