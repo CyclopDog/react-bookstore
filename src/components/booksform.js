@@ -24,10 +24,10 @@ class BooksForm extends React.Component {
     if (this.state.title === '') {
       alert('Please provide a title')
     } else {
-      fetch('https://em-bookstore-api.herokuapp.com/books', {
+      fetch(`https://secret-meadow-93147.herokuapp.com/books`, {
         method: 'POST',
         headers: {
-          Accept: 'application/json',
+          'Accept': 'application/json',
           'Content-type': 'application/json'
         },
         body: JSON.stringify({
@@ -41,6 +41,7 @@ class BooksForm extends React.Component {
   }
 
   componentDidMount(){
+    console.log(process.env.API_URL)
     this.setState({category: document.querySelector('#category').value})
   }
 

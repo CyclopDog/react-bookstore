@@ -5,6 +5,8 @@ import CategoryFilter from './categoryfilter';
 import { changeFilter } from '../actions/index'
 import BooksForm from './booksform'
 import Pagination from './Pagination.js';
+
+
 class BooksList extends React.Component {
   constructor(props) {
     super(props)
@@ -20,7 +22,13 @@ class BooksList extends React.Component {
   }
 
   fetchBooks() {
-    fetch("https://em-bookstore-api.herokuapp.com/books")
+    fetch(`https://secret-meadow-93147.herokuapp.com/books`, {
+      method: 'GET',
+      headers: {
+        'Accept': 'application/json',
+        'Content-type': 'application/json'
+      }
+    })
     .then(res => res.json())
     .then(
       (res) => {
