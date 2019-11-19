@@ -5,7 +5,7 @@ import CategoryFilter from './categoryfilter';
 import { changeFilter } from '../actions/index'
 import BooksForm from './booksform'
 import Pagination from './Pagination.js';
-
+import ReactLoading from 'react-loading'
 
 class BooksList extends React.Component {
   constructor(props) {
@@ -48,22 +48,18 @@ class BooksList extends React.Component {
 
   render(){
     const filteredBooks = this.props.filter === null ? this.state.books : this.state.books.filter((book) => book.category === this.props.filter)
-    const Loading = () => {
+    const Content = () => {
       if (this.state.loading === false) {
         return (<Pagination itens={filteredBooks} handleApi={this.fetchBooks}/>)  
       } else {
-        return(
-          <div className='box'>
-            <h1 className='title is-3'>LOADING...</h1>
-          </div>
-        )
+        return(<ReactLoading type='bars' color='#0290ff' height={200} width={100} />)
       }
     }
 
     return (
       <React.Fragment>
         <CategoryFilter filterHandler={this.handleFilterChange} />
-        <Loading />
+        <Content />
         <BooksForm handleApi={this.fetchBooks}/>
       </React.Fragment>
     )
