@@ -1,0 +1,21 @@
+{
+  "files": {
+    "main.css": "/react-bookstore/static/css/main.429ff748.chunk.css",
+    "main.js": "/react-bookstore/static/js/main.1b0f8499.chunk.js",
+    "main.js.map": "/react-bookstore/static/js/main.1b0f8499.chunk.js.map",
+    "runtime-main.js": "/react-bookstore/static/js/runtime-main.dec2baaf.js",
+    "runtime-main.js.map": "/react-bookstore/static/js/runtime-main.dec2baaf.js.map",
+    "static/js/2.34fde8f3.chunk.js": "/react-bookstore/static/js/2.34fde8f3.chunk.js",
+    "static/js/2.34fde8f3.chunk.js.map": "/react-bookstore/static/js/2.34fde8f3.chunk.js.map",
+    "index.html": "/react-bookstore/index.html",
+    "precache-manifest.5e608cdcddf97d368779111d1c79cb06.js": "/react-bookstore/precache-manifest.5e608cdcddf97d368779111d1c79cb06.js",
+    "service-worker.js": "/react-bookstore/service-worker.js",
+    "static/css/main.429ff748.chunk.css.map": "/react-bookstore/static/css/main.429ff748.chunk.css.map"
+  },
+  "entrypoints": [
+    "static/js/runtime-main.dec2baaf.js",
+    "static/js/2.34fde8f3.chunk.js",
+    "static/css/main.429ff748.chunk.css",
+    "static/js/main.1b0f8499.chunk.js"
+  ]
+}
