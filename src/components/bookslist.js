@@ -1,11 +1,11 @@
 import React from 'react';
 import { connect } from 'react-redux'
-import { removeBook } from '../actions/index'
 import CategoryFilter from './categoryfilter';
 import { changeFilter } from '../actions/index'
 import BooksForm from './booksform'
 import Pagination from './Pagination.js';
 import ReactLoading from 'react-loading'
+import { apiUrl } from './apiUrl'
 
 class BooksList extends React.Component {
   constructor(props) {
@@ -24,7 +24,7 @@ class BooksList extends React.Component {
 
   fetchBooks() {
     this.setState({ loading: true })
-    fetch(`https://secret-meadow-93147.herokuapp.com/books`, {
+    fetch(`${apiUrl}/books`, {
       method: 'GET',
       headers: {
         'Accept': 'application/json',
@@ -49,8 +49,10 @@ class BooksList extends React.Component {
   render(){
     const filteredBooks = this.props.filter === null ? this.state.books : this.state.books.filter((book) => book.category === this.props.filter)
     const Content = () => {
-      if (this.state.loading === false) {
-        return (<Pagination itens={filteredBooks} handleApi={this.fetchBooks}/>)  
+      if (this.state.books.length === 0 && this.state.loading === false ) {
+        return (<div className='box'><h1 className="title is-3">No books here yet :(</h1></div>)  
+      } else if (this.state.books.length > 0 && this.state.loading === false) {
+        return (<Pagination itens={filteredBooks} handleApi={this.fetchBooks}/>)
       } else {
         return(<ReactLoading type='bars' color='#0290ff' height={200} width={100} />)
       }
@@ -68,13 +70,11 @@ class BooksList extends React.Component {
 
 const mapStateToProps = state => {
   return {
-    books: state.bookReducer.books,
     filter: state.filterReducer.filter
   }
 }
 
 const mapDispatchToProps = {
-  removeBook: removeBook,
   changeFilter: changeFilter
 }
 

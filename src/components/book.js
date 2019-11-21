@@ -1,11 +1,12 @@
 import React from 'react'
 import { connect } from 'react-redux'
 import { removeBook } from '../actions/index'
+import { apiUrl } from './apiUrl'
 
 class Book extends React.Component {
 
   handleDelete = (book) => {
-    fetch(`https://secret-meadow-93147.herokuapp.com/books/${book.id}`, {
+    fetch(`${apiUrl}/books/${book.id}`, {
       method: 'DELETE',
       headers: {
         'Accept': 'application/json',

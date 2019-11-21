@@ -1,6 +1,7 @@
 import React from 'react'
 import { createBook } from '../actions/index'
 import { connect } from 'react-redux'
+import { apiUrl } from './apiUrl'
 
 export const categories = ["Action", "Biography", "History", "Horror", "Kids", "Learning", "Sci-Fi"]
 
@@ -24,8 +25,7 @@ class BooksForm extends React.Component {
     if (this.state.title === '') {
       alert('Please provide a title')
     } else {
-      console.log(this.state)
-      fetch(`https://secret-meadow-93147.herokuapp.com/books`, {
+      fetch(`${apiUrl}/books`, {
         method: 'POST',
         headers: {
           'Accept': 'application/json',
