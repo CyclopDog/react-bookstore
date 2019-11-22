@@ -38,6 +38,7 @@ class BooksList extends React.Component {
           books: res,
           loading: false
         })
+        this.props.sendStatus(res)
       }
     )
   }

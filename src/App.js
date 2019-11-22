@@ -1,12 +1,11 @@
 import React from 'react';
-import BooksList from './components/bookslist'
 import './App.css';
-import SignUp from './components/signup';
+import Index from './components/Index';
 
 function App() {
   return (
     <div>
-      <SignUp />
+      <Index />
     </div>
   );
 }
